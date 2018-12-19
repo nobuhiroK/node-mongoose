@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+var timestamps = require('mongoose-timestamp');
+
+
+
 const dishSchema = new Schema({
     name: {
         type: String,
@@ -11,9 +15,10 @@ const dishSchema = new Schema({
         type: String,
         required: true
     }
-},{
-    timestamps: true
 });
+
+dishSchema.plugin(timestamps);
+
 
 var Dishes = mongoose.model('Dish', dishSchema);
 
